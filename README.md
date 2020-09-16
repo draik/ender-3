@@ -61,7 +61,7 @@ This is the base configuration for Ender-3 Pro on v4.2.7 motherboard.
 This was more for the core Marlin 2.0 firmware than the configurations, but  
 applying these here as they were used for testing stability; it worked.  
 
-## Marlin 2.0.6 Build 1 (2020-09-14 2151)
+## Marlin 2.0.6 Build 1 (firmware-20200914-215152.bin)
 This is the first official build with my own changes, and known to be working  
 on the new board: Creality v4.2.7. The BLTouch was included, but not verified  
 as working, due to pin connection issues. There are 2 methods for connecting  
@@ -90,3 +90,15 @@ pins for Creality v4.2.7 motherboard.
     - #define ADVANCED_PAUSE_FEATURE (enable advanced pause feature)  
     - #define PARK_HEAD_ON_PAUSE (park during pause and filament change)  
     - #define HOME_BEFORE_FILAMENT_CHANGE (go home before filament change)  
+
+## Marlin 2.0.6 Build 2 (firmware-20200915-204809.bin)
+Almost caught the printer on fire during power up. This was caused from how  
+BLTouch was being connected to the Creality v4.2.7 board. Disabled the  
+connection method that I was not using, removed the Z stop connector, and  
+plugged in the BLTouch as I did with the v1.1.3 board. Everything is working  
+as expected, with all options I need.
+
+### Changes
+**Configuration.h**
+
+    - //#define Z_MIN_PROBE_PIN 17 // Pin 32 is the RAMPS default
