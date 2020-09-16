@@ -56,3 +56,7 @@ enabled options for my Ender-3 Pro.
 This firmware example is made for the Creality v4.2.2 boards that were becoming  
 the new standard for motherboards on the Ender-3 3D printer as of 2020.  
 This is the base configuration for Ender-3 Pro on v4.2.7 motherboard.  
+
+## Marlin 2.0.x Configuration Bugfix
+This was more for the core Marlin 2.0 firmware than the configurations, but  
+applying these here as they were used for testing stability; it worked.  
