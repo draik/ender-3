@@ -71,20 +71,20 @@ pins for Creality v4.2.7 motherboard.
 
 ### Changes
 **Configuration.h**
-    * BOARD_CREALITY_V427 (was only V4)
-    * Z_MIN_PROBE_PIN 17 (was pin 32)
-    * #define BLTOUCH (enabling BLTouch)
-    * #define NOZZLE_TO_PROBE_OFFSET { -40, -10, 0 }
-    * //#define MIN_SOFTWARE_ENDSTOP_Z (allows for negative value)
-    * #define AUTO_BED_LEVELING_BILINEAR (enable bilinear bed leveling)
-    * #define LCD_BED_LEVELING (enable bed leveling menu)
-    * #define Z_SAFE_HOMING (lift Z so as to not scrape on print or bed)
-    * #define PREHEAT_1_TEMP_BED     70 (pre-heat PLA bed to 70C)
-    * #define NOZZLE_PARK_FEATURE (enable nozzle parking)
-    * #define SPEAKER (32-bit board with space; re-enable the speaker)
+    - BOARD_CREALITY_V427 (was only V4)
+    - Z_MIN_PROBE_PIN 17 (was pin 32)
+    - #define BLTOUCH (enabling BLTouch)
+    - #define NOZZLE_TO_PROBE_OFFSET { -40, -10, 0 }
+    - //#define MIN_SOFTWARE_ENDSTOP_Z (allows for negative value)
+    - #define AUTO_BED_LEVELING_BILINEAR (enable bilinear bed leveling)
+    - #define LCD_BED_LEVELING (enable bed leveling menu)
+    - #define Z_SAFE_HOMING (lift Z so as to not scrape on print or bed)
+    - #define PREHEAT_1_TEMP_BED     70 (pre-heat PLA bed to 70C)
+    - #define NOZZLE_PARK_FEATURE (enable nozzle parking)
+    - #define SPEAKER (32-bit board with space; re-enable the speaker)
 
 **Configuration_adv.h**
-    * #define BLTOUCH_DELAY 500 (enable BLTouch delay)
-    * #define ADVANCED_PAUSE_FEATURE (enable advanced pause feature)
-    * #define PARK_HEAD_ON_PAUSE (park during pause and filament change)
-    * #define HOME_BEFORE_FILAMENT_CHANGE (go home before filament change)
+    - #define BLTOUCH_DELAY 500 (enable BLTouch delay)
+    - #define ADVANCED_PAUSE_FEATURE (enable advanced pause feature)
+    - #define PARK_HEAD_ON_PAUSE (park during pause and filament change)
+    - #define HOME_BEFORE_FILAMENT_CHANGE (go home before filament change)
