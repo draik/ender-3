@@ -60,3 +60,31 @@ This is the base configuration for Ender-3 Pro on v4.2.7 motherboard.
 ## Marlin 2.0.x Configuration Bugfix
 This was more for the core Marlin 2.0 firmware than the configurations, but  
 applying these here as they were used for testing stability; it worked.  
+
+## Marlin 2.0.6 Build 1 (2020-09-14 2151)
+This is the first official build with my own changes, and known to be working  
+on the new board: Creality v4.2.7. The BLTouch was included, but not verified  
+as working, due to pin connection issues. There are 2 methods for connecting  
+the BLTouch, and there is a required attention to detail when connecting the  
+pins. Colors are changed due to the Creality v1.1.3 board, and the on-board  
+pins for Creality v4.2.7 motherboard.  
+
+### Changes
+**Configuration.h**
+    * BOARD_CREALITY_V427 (was only V4)
+    * Z_MIN_PROBE_PIN 17 (was pin 32)
+    * #define BLTOUCH (enabling BLTouch)
+    * #define NOZZLE_TO_PROBE_OFFSET { -40, -10, 0 }
+    * //#define MIN_SOFTWARE_ENDSTOP_Z (allows for negative value)
+    * #define AUTO_BED_LEVELING_BILINEAR (enable bilinear bed leveling)
+    * #define LCD_BED_LEVELING (enable bed leveling menu)
+    * #define Z_SAFE_HOMING (lift Z so as to not scrape on print or bed)
+    * #define PREHEAT_1_TEMP_BED     70 (pre-heat PLA bed to 70C)
+    * #define NOZZLE_PARK_FEATURE (enable nozzle parking)
+    * #define SPEAKER (32-bit board with space; re-enable the speaker)
+
+**Configuration_adv.h**
+    * #define BLTOUCH_DELAY 500 (enable BLTouch delay)
+    * #define ADVANCED_PAUSE_FEATURE (enable advanced pause feature)
+    * #define PARK_HEAD_ON_PAUSE (park during pause and filament change)
+    * #define HOME_BEFORE_FILAMENT_CHANGE (go home before filament change)
