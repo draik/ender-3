@@ -51,3 +51,8 @@ recommended to be on a 32-bit board, even though 8-bit is still supported.
 
 Adding the default configuration as a base to the upcoming upgrades and  
 enabled options for my Ender-3 Pro.  
+
+## Marlin 2.0 Ender-3 Pro v1.5
+This firmware example is made for the Creality v4.2.2 boards that were becoming  
+the new standard for motherboards on the Ender-3 3D printer as of 2020.  
+This is the base configuration for Ender-3 Pro on v4.2.7 motherboard.  
