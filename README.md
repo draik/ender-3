@@ -2,16 +2,6 @@
 This will be where I maintain the changes to the firmware applied to the  
 Ender-3 Pro 3D printer.
 
-# Marlin 1.1.9
-This contains the default build for Marlin 1.1.9.  
-The build is compiled in Arduino IDE, and pushed through an Arduino Uno  
-setup as an ISP, connected to the v1.1.3 Creality board (stock).  
-
-## Marlin 1.1.9 Creality
-Initial commit is the default Marlin 1.1.9 firmware. There is a Creality  
-folder that contains Ender-3 specifics, but also works for the Ender-3 Pro.  
-Nothing was changed when flashed to the Ender-3 Pro.
-
 # Marlin 2.0
 Marlin 2.0 supports 8-bit boards, like the stock Creality v1.1.3 motherboard,  
 but now has the added bonus of supporting 32-bit boards. Such board is the  
@@ -44,22 +34,43 @@ PlatformIO IDE and Auto Build Marlin plug-ins. There will be changes needed
 in the platformio.ini file, to ensure the proper board is used for compiling  
 through the Auto Build Marlin plug-in.  
 
-## Marlin 2.0 Default
-The default configuration is the base for any 3D printer, and generally works  
-for any board that can accept the Marlin 2.0 firmware. It is also highly  
-recommended to be on a 32-bit board, even though 8-bit is still supported.  
+## Marlin 2.0.6 Build 4 (firmware-20200916-211044.bin)
+Disabling an additional option to ensure the printer sets the progress information.  
 
-Adding the default configuration as a base to the upcoming upgrades and  
-enabled options for my Ender-3 Pro.  
+### Changes
+**Configuration_adv.h**
 
-## Marlin 2.0 Ender-3 Pro v1.5
-This firmware example is made for the Creality v4.2.2 boards that were becoming  
-the new standard for motherboards on the Ender-3 3D printer as of 2020.  
-This is the base configuration for Ender-3 Pro on v4.2.7 motherboard.  
+    - //#define LCD_SET_PROGRESS_MANUALLY (disable setting manually)
 
-## Marlin 2.0.x Configuration Bugfix
-This was more for the core Marlin 2.0 firmware than the configurations, but  
-applying these here as they were used for testing stability; it worked.  
+## Marlin 2.0.6 Build 3 (firmware-20200916-174937.bin)
+Making minor changes to the the probing position, nozzle parking, and LCD  
+status updates. The OctoPi can provide M73 status bar updates, but it  
+requires a plug-in for that. Instead, I will let the firmware handle it.  
+
+### Changes
+**Configuration.h**
+
+    - #define Z_AFTER_PROBING             5 (enable and set to 5mm height)
+    - #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MIN_POS, 20 } (park the nozzle at home)
+
+**Configuration_adv.h**
+    - #define LCD_SET_PROGRESS_MANUALLY (enable setting the progress bar manually; M73)
+    - #define LCD_SHOW_E_TOTAL (show how much filament has been used)
+    - #define PRINT_PROGRESS_SHOW_DECIMALS (show progress with XX.Y percentage)
+    - #define SHOW_REMAINING_TIME (enable show remaining time)
+    - #define ROTATE_PROGRESS_DISPLAY (cycle progress, elapsed, remaining time)
+
+## Marlin 2.0.6 Build 2 (firmware-20200915-204809.bin)
+Almost caught the printer on fire during power up. This was caused from how  
+BLTouch was being connected to the Creality v4.2.7 board. Disabled the  
+connection method that I was not using, removed the Z stop connector, and  
+plugged in the BLTouch as I did with the v1.1.3 board. Everything is working  
+as expected, with all options I need.
+
+### Changes
+**Configuration.h**
+
+    - //#define Z_MIN_PROBE_PIN 17 // Pin 32 is the RAMPS default
 
 ## Marlin 2.0.6 Build 1 (firmware-20200914-215152.bin)
 This is the first official build with my own changes, and known to be working  
@@ -91,32 +102,30 @@ pins for Creality v4.2.7 motherboard.
     - #define PARK_HEAD_ON_PAUSE (park during pause and filament change)  
     - #define HOME_BEFORE_FILAMENT_CHANGE (go home before filament change)  
 
-## Marlin 2.0.6 Build 2 (firmware-20200915-204809.bin)
-Almost caught the printer on fire during power up. This was caused from how  
-BLTouch was being connected to the Creality v4.2.7 board. Disabled the  
-connection method that I was not using, removed the Z stop connector, and  
-plugged in the BLTouch as I did with the v1.1.3 board. Everything is working  
-as expected, with all options I need.
+## Marlin 2.0.x Configuration Bugfix
+This was more for the core Marlin 2.0 firmware than the configurations, but  
+applying these here as they were used for testing stability; it worked.  
 
-### Changes
-**Configuration.h**
+## Marlin 2.0 Ender-3 Pro v1.5
+This firmware example is made for the Creality v4.2.2 boards that were becoming  
+the new standard for motherboards on the Ender-3 3D printer as of 2020.  
+This is the base configuration for Ender-3 Pro on v4.2.7 motherboard.  
 
-    - //#define Z_MIN_PROBE_PIN 17 // Pin 32 is the RAMPS default
+## Marlin 2.0 Default
+The default configuration is the base for any 3D printer, and generally works  
+for any board that can accept the Marlin 2.0 firmware. It is also highly  
+recommended to be on a 32-bit board, even though 8-bit is still supported.  
 
-## Marlin 2.0.6 Build 3 (firmware-20200916-174937.bin)
-Making minor changes to the the probing position, nozzle parking, and LCD  
-status updates. The OctoPi can provide M73 status bar updates, but it  
-requires a plug-in for that. Instead, I will let the firmware handle it.  
+Adding the default configuration as a base to the upcoming upgrades and  
+enabled options for my Ender-3 Pro.  
 
-### Changes
-**Configuration.h**
+# Marlin 1.1.9
+This contains the default build for Marlin 1.1.9.  
+The build is compiled in Arduino IDE, and pushed through an Arduino Uno  
+setup as an ISP, connected to the v1.1.3 Creality board (stock).  
 
-    - #define Z_AFTER_PROBING             5 (enable and set to 5mm height)
-    - #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MIN_POS, 20 } (park the nozzle at home)
+## Marlin 1.1.9 Creality
+Initial commit is the default Marlin 1.1.9 firmware. There is a Creality  
+folder that contains Ender-3 specifics, but also works for the Ender-3 Pro.  
+Nothing was changed when flashed to the Ender-3 Pro.
 
-**Configuration_adv.h**
-    - #define LCD_SET_PROGRESS_MANUALLY (enable setting the progress bar manually; M73)
-    - #define LCD_SHOW_E_TOTAL (show how much filament has been used)
-    - #define PRINT_PROGRESS_SHOW_DECIMALS (show progress with XX.Y percentage)
-    - #define SHOW_REMAINING_TIME (enable show remaining time)
-    - #define ROTATE_PROGRESS_DISPLAY (cycle progress, elapsed, remaining time)
