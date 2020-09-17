@@ -102,3 +102,21 @@ as expected, with all options I need.
 **Configuration.h**
 
     - //#define Z_MIN_PROBE_PIN 17 // Pin 32 is the RAMPS default
+
+## Marlin 2.0.6 Build 3 (firmware-20200916-174937.bin)
+Making minor changes to the the probing position, nozzle parking, and LCD  
+status updates. The OctoPi can provide M73 status bar updates, but it  
+requires a plug-in for that. Instead, I will let the firmware handle it.  
+
+### Changes
+**Configuration.h**
+
+    - #define Z_AFTER_PROBING             5 (enable and set to 5mm height)
+    - #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MIN_POS, 20 } (park the nozzle at home)
+
+**Configuration_adv.h**
+    - #define LCD_SET_PROGRESS_MANUALLY (enable setting the progress bar manually; M73)
+    - #define LCD_SHOW_E_TOTAL (show how much filament has been used)
+    - #define PRINT_PROGRESS_SHOW_DECIMALS (show progress with XX.Y percentage)
+    - #define SHOW_REMAINING_TIME (enable show remaining time)
+    - #define ROTATE_PROGRESS_DISPLAY (cycle progress, elapsed, remaining time)
