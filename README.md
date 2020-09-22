@@ -34,6 +34,15 @@ PlatformIO IDE and Auto Build Marlin plug-ins. There will be changes needed
 in the platformio.ini file, to ensure the proper board is used for compiling  
 through the Auto Build Marlin plug-in.  
 
+## Marlin 2.0.6 Build 5 (firmware-20200921-181810.bin)
+Enabled the ability for OctoPrint to push M73 status updates to the screen  
+
+### Changes
+***Configuration_adv.h**
+
+    - #define LCD_SET_PROGRESS_MANUALLY
+    - #define USE_M73_REMAINING_TIME
+
 ## Marlin 2.0.6 Build 4 (firmware-20200916-211044.bin)
 Disabling an additional option to ensure the printer sets the progress information.  
 
