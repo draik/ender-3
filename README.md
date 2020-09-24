@@ -34,6 +34,15 @@ PlatformIO IDE and Auto Build Marlin plug-ins. There will be changes needed
 in the platformio.ini file, to ensure the proper board is used for compiling  
 through the Auto Build Marlin plug-in.  
 
+## Marlin 2.0.6 Build 6 (firmware-20200924-124550.bin)
+Enable the custom boot screens  
+
+### Changes
+**Configuration.h**
+
+    - #define SHOW_CUSTOM_BOOTSCREEN
+    - #define CUSTOM_STATUS_SCREEN_IMAGE
+
 ## Marlin 2.0.6 Build 5 (firmware-20200921-181810.bin)
 Enabled the ability for OctoPrint to push M73 status updates to the screen  
 
