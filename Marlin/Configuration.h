@@ -490,9 +490,14 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Ender 3 v2
-  #define DEFAULT_Kp 28.72
-  #define DEFAULT_Ki 2.62
-  #define DEFAULT_Kd 78.81
+  //#define DEFAULT_Kp 28.72  // Default
+  //#define DEFAULT_Ki 2.62   // Default
+  //#define DEFAULT_Kd 78.81  // Default
+
+  // Values obtained through: M303 E0 S215 U
+  #define DEFAULT_Kp 26.61
+  #define DEFAULT_Ki 2.63
+  #define DEFAULT_Kd 67.19
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -541,9 +546,14 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 462.10
-  #define DEFAULT_bedKi 85.47
-  #define DEFAULT_bedKd 624.59
+  //#define DEFAULT_bedKp 462.10  // Default
+  //#define DEFAULT_bedKi 85.47   // Default
+  //#define DEFAULT_bedKd 624.59  // Default
+
+  // Values obtained through: M303 E-1 S60 U
+  #define DEFAULT_bedKp 104.79
+  #define DEFAULT_bedKi 18.68
+  #define DEFAULT_bedKd 392.00
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune

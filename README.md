@@ -34,6 +34,20 @@ PlatformIO IDE and Auto Build Marlin plug-ins. There will be changes needed
 in the platformio.ini file, to ensure the proper board is used for compiling  
 through the Auto Build Marlin plug-in.  
 
+## Marlin 2.0.6 Build 7 (firmware-20201016-150145.bin)
+Setup PID for hotend and bed, after running PID Autotune.  
+
+### Changes
+**Configuration.h**
+
+    - #define DEFAULT_Kp 26.61
+    - #define DEFAULT_Ki 2.63
+    - #define DEFAULT_Kd 67.19
+
+    - #define DEFAULT_bedKp 104.79
+    - #define DEFAULT_bedKi 18.68
+    - #define DEFAULT_bedKd 392.00
+
 ## Marlin 2.0.6 Build 6 (firmware-20200924-124550.bin)
 Enable the custom boot screens  
 
@@ -47,7 +61,7 @@ Enable the custom boot screens
 Enabled the ability for OctoPrint to push M73 status updates to the screen  
 
 ### Changes
-***Configuration_adv.h**
+**Configuration_adv.h**
 
     - #define LCD_SET_PROGRESS_MANUALLY
     - #define USE_M73_REMAINING_TIME
