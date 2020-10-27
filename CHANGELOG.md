@@ -50,6 +50,7 @@ requires a plug-in for that. Instead, I will let the firmware handle it.
     - #define NOZZLE_PARK_POINT { X_MIN_POS, Y_MIN_POS, 20 } (park the nozzle at home)
 
 **Configuration_adv.h**
+
     - #define LCD_SET_PROGRESS_MANUALLY (enable setting the progress bar manually; M73)
     - #define LCD_SHOW_E_TOTAL (show how much filament has been used)
     - #define PRINT_PROGRESS_SHOW_DECIMALS (show progress with XX.Y percentage)
