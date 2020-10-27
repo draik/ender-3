@@ -1,3 +1,15 @@
+# Marlin 2.0.6 Build 8 (firmware-20201027-142659.bin)
+Enable HOST_ACTION_COMMANDS and HOST_PROMPT_SUPPORT in Configuration_adv.h  
+as thsi will allow Ender 3 to communicate to the OctoPrint, and actually  
+stop/pause prints, as OctoPrint otherwise continues sending GCODE commands  
+to the print (does not stop sending printing instructions).
+
+## Changes
+**Configuration_adv.h**
+
+    - #define HOST_ACTION_COMMANDS
+    - #define HOST_PROMPT_SUPPORT
+
 # Marlin 2.0.6 Build 7 (firmware-20201016-150145.bin)
 Setup PID for hotend and bed, after running PID Autotune.  
 
