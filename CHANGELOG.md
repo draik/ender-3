@@ -1,6 +1,106 @@
+# Marlin 2.1.2 Build 4 (firmware-20230305-205029.bin)
+Undid the time changes to Marlin/src/libs/duration_t.h for minutes.  
+All modifications scrambled the Elapsed and Remaining time output.  
+Other tests caused display issues with the percentage complete as well.  
+Returned the file to its default output; `12'34`
+
+## Changes
+**Marlin/src/libs/duration_t.h**
+
+    - sprintf_P(buffer, PSTR("%02hu'%02hu"), m, s);     // 12'34
+
+# Marlin 2.1.2 Build 3 (firmware-20230305-152018.bin)
+General modifications to enable Z probing for bed leveling.  
+The BABYSTEP_ZPROBE_OFFET option enables real-time Z offset changes  
+by holding down the button on the main menu.  
+Shortened the printer name; unnecessary scrolling.
+
+## Changes
+**Configuration.h**
+
+    - #define CUSTOM_MACHINE_NAME "Ender-3 Pro"
+    - #define AUTO_BED_LEVELING_LINEAR
+    - //#define AUTO_BED_LEVELING_BILINEAR
+
+**Configuration_adv.h**
+
+    - #define PROBE_OFFSET_WIZARD
+    - #define PROBE_OFFSET_WIZARD_START_Z -4.0
+    - #define BABYSTEP_ZPROBE_OFFSET
+
+# Marlin 2.1.2 Build 2 (firmware-20230304-161640.bin)
+No changes to printer configurations files.  
+This changed the time format when remaining print time is less than 1 hour.  
+Changed the apostrophe to colon, and prefixed "0:"
+
+**WAS**  
+12'34
+
+**NOW**  
+0:12:34
+
+## Changes
+**Marlin/src/libs/duration_t.h**
+
+    - sprintf_P(buffer, PSTR("0:%02hu:%02hu"), m, s);     // 0:12:34
+
+# Marlin 2.1.2 Build 1 (firmware-20230227-151756.bin)
+Upgraded firmware from version 2.0.9.3 to 2.1.2.  
+All updates were applied to apply the new Merlin firmware.  
+There was only one addition, not previously enabled.
+
+## Changes
+**Configuration.h**
+
+    - #define S_CURVE_ACCELERATION
+
+# Marlin 2.0.9.3 Build 3 (firmware-20220306-122256.bin)
+Bed temp tensor was not enabled.  
+Set the bed size to 235mm from the default 200mm.
+
+## Changes
+**Configuration.h**
+
+    - #define TEMP_SENSOR_BED 1
+    - #define X_BED_SIZE 235
+    - #define Y_BED_SIZE 235
+
+# Marlin 2.0.9.3 Build 2 (firmware-20220306-113236.bin)
+Bed Y-axis was moving in the opposite direction. This change was not  
+applied to the first build, to test if this was still required; it is.  
+Changing the Z axis as well, as it was changed in previous builds.
+
+## Changes
+**Configuration.h**
+
+    - #define INVERT_Y_DIR false
+    - #define INVERT_Z_DIR true
+
+# Marlin 2.0.9.3 Build 1 (firmware-20220306-105328.bin)
+Applied previous configurations to new Marlin firmware.  
+Build issues were caused from undocumented changes, particularly to the  
+LCD used for CR10_STOCKDISPLAY option, needing to define the chipset on the  
+board: RET6 or VET6. Added these options to the Configuration.h file, and  
+enabled RET6_12864_LCD for my board chipset.
+
+## Changes
+There are many to list, but are generally all the same as previous edits.  
+Some changes in the files come from tabbing/formatting, and in some cases,  
+from the addition of details to the comments.  There were also some changes  
+to few variable names, which provides a better description.
+
+# Marlin 2.0.9.3 Build 0
+Upgrading the core Marlin firmware from 2.0.6 to 2.0.9.3 as the current  
+latest version available. Build 0 is the base for the core upgrade, and  
+will have follow-up updates to apply all that was previously configured.  
+
+There are many additions to the Configuration.h and Configuration_adv.h  
+files, but mostly to support new boards and its respective features.  
+Same changes will need to be applied on the new firmware build for v2.0.9.3.
+
 # Marlin 2.0.6 Build 8 (firmware-20201027-142659.bin)
 Enable HOST_ACTION_COMMANDS and HOST_PROMPT_SUPPORT in Configuration_adv.h  
-as thsi will allow Ender 3 to communicate to the OctoPrint, and actually  
+as this will allow Ender 3 to communicate to the OctoPrint, and actually  
 stop/pause prints, as OctoPrint otherwise continues sending GCODE commands  
 to the print (does not stop sending printing instructions).
 
